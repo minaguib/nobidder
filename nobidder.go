@@ -7,7 +7,9 @@ import (
 	"time"
 
 	"github.com/bsm/openrtb"
+	"github.com/golang/protobuf/proto"
 	"github.com/json-iterator/go"
+	"github.com/minaguib/nobidder/pb"
 )
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary
@@ -44,6 +46,23 @@ func handleOpenRTB(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleProtoBuf(w http.ResponseWriter, r *http.Request) {
+
+	in, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusUnsupportedMediaType)
+		return
+	} else if len(in) == 0 {
+		http.Error(w, "empty body", http.StatusUnsupportedMediaType)
+		return
+	}
+
+	br := &com_google_openrtb.BidRequest{}
+	err = proto.Unmarshal(in, br)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusUnsupportedMediaType)
+		return
+	}
+
 	w.Header().Set("content-type", "application/octet-stream")
 	w.Write(protoBufNoBid)
 }
