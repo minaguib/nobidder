@@ -6,6 +6,8 @@ Experiments in writing a no-bid openrtb http server
 
 * `go-vanilla` - Go vanilla implementation with standard lib HTTP server and JSON parser
 * `go-fast` - Go implementatin with faster 3rd-party HTTP and JSON libraries
+* `rust-actix` - Rust implementation on the actix web framework
+* `rust-axum` - Rust implementation on the axum web framework
 
 ## Behavior
 
