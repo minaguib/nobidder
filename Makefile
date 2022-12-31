@@ -17,6 +17,9 @@ nobidder-rust-actix:
 nobidder-rust-axum:
 	cd "rust-axum" && cargo run --release
 
+nobidder-python-aiohttp:
+	cd "python-aiohttp" && pipenv sync && pipenv run python main.py
+
 #
 # Client runners
 #

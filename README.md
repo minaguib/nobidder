@@ -8,6 +8,7 @@ Experiments in writing a no-bid openrtb http server
 * `go-fast` - Go implementatin with faster 3rd-party HTTP and JSON libraries
 * `rust-actix` - Rust implementation on the actix web framework
 * `rust-axum` - Rust implementation on the axum web framework
+* `python-aiohttp` - Python implementation on the aiohttp web framework and orjson JSON parser
 
 ## Behavior
 
@@ -28,6 +29,7 @@ make nobidder-go-vanilla
 make nobidder-go-fast
 make nobidder-rust-actix
 make nobidder-rust-axum
+make nobidder-python-aiohttp
 
 # Client invocations
 make curl-ping
